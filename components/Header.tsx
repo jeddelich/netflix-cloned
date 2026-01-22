@@ -36,7 +36,7 @@ function Header() {
           className="cursor-pointer object-contain"
         />
 
-        <ul className="hidden space-x-4 md:flex">
+        <ul className="hidden space-x-4 lg:space-x-6 md:flex">
           <li className="header__link">Home</li>
           <li className="header__link">Tv Shows</li>
           <li className="header__link">Movies</li>
@@ -46,14 +46,14 @@ function Header() {
       </div>
 
       <div className="flex items-center space-x-4 text-sm font-light">
-        <MagnifyingGlassIcon className="hidden h-6 w-6 sm:inline" />
-        <p className="hidden lg:inline">Kids</p>
-        <BellIcon className="h-6 w-6"/>
+        <MagnifyingGlassIcon className="hidden h-6 w-6 sm:inline cursor-pointer mt-0.5 " />
+        <p className="hidden lg:inline lg:text-2xl cursor-pointer">Kids</p>
+        <BellIcon className="h-6 w-6 mt-1 cursor-pointer"/>
         <Link href='/account'>
             <img
             src="https://rb.gy/g1pwyx"
             alt=""
-            className="cursor-pointer rounded"
+            className="cursor-pointer rounded lg:h-10 lg:w-10"
           />
         </Link>
       </div>
