@@ -32,15 +32,15 @@ export default async function Home() {
       <main className="relative pl-4 pb-24 lg:pl-16">
         <Banner netflixOriginals= {netflixOriginals.results}/>
         <section>
-          <Row title="Trending Now" movies={trendingNow} />
-          <Row title="Top Rated" movies={topRated} />
-          <Row title="Action Thrillers" movies={actionMovies} />
+          <Row title="Trending Now" movies={trendingNow.results} />
+          <Row title="Top Rated" movies={topRated.results} />
+          <Row title="Action Thrillers" movies={actionMovies.results} />
           {/* My List Component
           {list.length > 0 && <Row title="My List" movies={list} />} */}
-          <Row title="Comedies" movies={comedyMovies} />
-          <Row title="Scary Movies" movies={horrorMovies} />
-          <Row title="Romance Movies" movies={romanceMovies} />
-          <Row title="Documentaries" movies={documentaries} />
+          <Row title="Comedies" movies={comedyMovies.results} />
+          <Row title="Scary Movies" movies={horrorMovies.results} />
+          <Row title="Romance Movies" movies={romanceMovies.results} />
+          <Row title="Documentaries" movies={documentaries.results} />
         </section>
       </main>
       {/* Modal  */}
