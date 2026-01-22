@@ -6,8 +6,11 @@
     images: {
     remotePatterns: [
       {
-        hostname: 'image.tmdb.org',
+        hostname: 'image.tmdb.org'
       },
+      {
+        hostname: 'assets.nflxext.com'
+      }
     ],  
   },
 }
