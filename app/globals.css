@@ -1,8 +1,26 @@
 @import "tailwindcss";
 
+@plugin 'tailwind-scrollbar';
+
+/* ::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e53e3e;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+} */
+
 @layer base {
   body {
-   @apply bg-[#141414] text-white;
+   @apply bg-[#141414] text-white scrollbar! scrollbar-track-transparent! scrollbar-thumb-red-600!;
   }
 
   header {
