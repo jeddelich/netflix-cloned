@@ -16,42 +16,54 @@ function Banner({ netflixOriginals }: Props) {
 
   useEffect(() => {
     setMovie(
-      netflixOriginals[Math.floor(Math.random() * netflixOriginals.length)],
+      netflixOriginals[Math.floor(Math.random() * netflixOriginals.length)]
     );
   }, [netflixOriginals]);
 
   return (
-    movie !== null && (
-      <>
-        <div className="flex flex-col space-y-2 py-16 md:space-y-4 lg:h-[50vh] lg:justify-end lg:pb-12">
-          <div className="absolute top-0 left-0 h-[95vh] -z-10 w-full">
-            <Image
-              src={`${baseUrl}${movie?.backdrop_path || movie?.poster_path}`}
-              alt=""
-              loading="eager"
-              fill
-              sizes="100vw"
-              style={{ objectFit: 'cover' }}
-            />
+    movie && (
+      <div className="relative w-full h-screen lg:h-[140vh] flex flex-col justify-end overflow-hidden">
+        {/* Image container */}
+        <div className="absolute top-0 left-0 w-full h-full -z-10">
+          <Image
+            src={`${baseUrl}${movie?.backdrop_path || movie?.poster_path}`}
+            alt=""
+            fill
+            style={{ objectFit: "cover" }}
+            priority
+          />
+
+          {/* Bottom fade overlay */}
+          <div
+            className="absolute bottom-0 left-0 w-full h-[70%] pointer-events-none"
+            style={{
+              background:
+                "linear-gradient(to bottom, rgba(20,20,20,0) 0%, #141414 100%)",
+            }}
+          />
+        </div>
+
+        {/* Banner content */}
+        <div className="absolute top-80 md:top-1/2 lg:top-1/3 left-4 lg:left-16 z-10">
+          <h1 className="text-2xl md:text-4xl lg:text-7xl font-bold">
+            {movie?.title || movie?.name || movie?.original_name}
+          </h1>
+          <p className="mt-2 max-w-xs text-xs md:max-w-lg md:text-lg lg:max-w-2xl lg:text-2xl text-shadow-md">
+            {movie?.overview}
+          </p>
+
+          <div className="flex space-x-3 mt-4">
+            <button className="banner__btn bg-white text-black">
+              <FaPlay className="h-4 w-4 md:h-7 md:w-7 text-black" />
+              Play
+            </button>
+            <button className="banner__btn bg-[gray]/70 flex items-center gap-x-1">
+              More Info{" "}
+              <InformationCircleIcon className="h-5 w-5 md:h-8 md:w-8" />
+            </button>
           </div>
         </div>
-        <h1 className="text-2xl lg:text-7xl md:text-4xl font-bold ">
-          {movie?.title || movie?.name || movie?.original_name}
-        </h1>
-        <p className="py-4 max-w-xs text-shadow-md text-xs md:max-w-lg md:text-lg lg:max-w-2xl lg:text-2xl">
-          {movie?.overview}
-        </p>
-        <div className="flex space-x-3 pb-5">
-          <button className="banner__btn bg-white text-black">
-            <FaPlay className="h-4 w-4 text-black md:h-7 md:w-7" />
-            Play
-          </button>
-          <button className="banner__btn bg-[gray]/70">
-            More Info{" "}
-            <InformationCircleIcon className="h-5 w-5 md:h-8 md:w-8" />{" "}
-          </button>
-        </div>
-      </>
+      </div>
     )
   );
 }

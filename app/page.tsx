@@ -26,24 +26,22 @@ export default async function Home() {
   ]);
 
   return (
-
-    <div className="relative h-screen bg-linear-to-b -z-50 lg:h-[140vh]">
+    <div className="relative">
       <Header />
-      <main className="relative pl-4 pb-24 lg:pl-16">
-        <Banner netflixOriginals= {netflixOriginals.results}/>
-        <section>
-          <Row title="Trending Now" movies={trendingNow.results} />
-          <Row title="Top Rated" movies={topRated.results} />
-          <Row title="Action Thrillers" movies={actionMovies.results} />
-          {/* My List Component
-          {list.length > 0 && <Row title="My List" movies={list} />} */}
-          <Row title="Comedies" movies={comedyMovies.results} />
-          <Row title="Scary Movies" movies={horrorMovies.results} />
-          <Row title="Romance Movies" movies={romanceMovies.results} />
-          <Row title="Documentaries" movies={documentaries.results} />
-        </section>
-      </main>
-      {/* Modal  */}
+      <div className="relative">
+        <main className="pb-24">
+          <Banner netflixOriginals={netflixOriginals.results} />
+          <section className="pl-4 lg:pl-16 -mt-32 lg:-mt-48 md:mt-0">
+            <Row title="Trending Now" movies={trendingNow.results} />
+            <Row title="Top Rated" movies={topRated.results} />
+            <Row title="Action Thrillers" movies={actionMovies.results} />
+            <Row title="Comedies" movies={comedyMovies.results} />
+            <Row title="Scary Movies" movies={horrorMovies.results} />
+            <Row title="Romance Movies" movies={romanceMovies.results} />
+            <Row title="Documentaries" movies={documentaries.results} />
+          </section>
+        </main>
+      </div>
     </div>
   );
 }

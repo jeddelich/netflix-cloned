@@ -1,33 +1,33 @@
-"use client"
+"use client";
 
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import { BellIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import useAuth from "@/hooks/useAuth";
 
 function Header() {
-  
-  const [isScrolled, setIsScrolled] = useState(false)
-  
-    useEffect(() => {
-        const handleScroll = () => {
-            if (window.scrollY > 0) {
-                setIsScrolled(true)
-            } else {
-                setIsScrolled(false)
-            }
+  const [isScrolled, setIsScrolled] = useState(false);
+  const { logout } = useAuth();
 
-        }
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
 
-        window.addEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", handleScroll);
 
-        return () => {
-          window.addEventListener("scroll", handleScroll)
-        }
-    }, []) 
+    return () => {
+      window.addEventListener("scroll", handleScroll);
+    };
+  }, []);
 
-    return (
-    <header className={`${isScrolled && 'bg-[#141414]'}`}>
+  return (
+    <header className={`${isScrolled && "bg-[#141414]"}`}>
       <div className="flex items-center space-x-2 md:space-x-10 ">
         <img
           src="https://rb.gy/ulxxee"
@@ -48,14 +48,15 @@ function Header() {
       <div className="flex items-center space-x-4 text-sm font-light">
         <MagnifyingGlassIcon className="hidden h-6 w-6 sm:inline cursor-pointer mt-0.5 " />
         <p className="hidden lg:inline lg:text-2xl cursor-pointer">Kids</p>
-        <BellIcon className="h-6 w-6 mt-1 cursor-pointer"/>
-        <Link href='/account'>
-            <img
+        <BellIcon className="h-6 w-6 mt-1 cursor-pointer" />
+        {/* <Link href="/account" onClick={}> */}
+          <img
+            onClick={logout}
             src="https://rb.gy/g1pwyx"
             alt=""
             className="cursor-pointer rounded lg:h-10 lg:w-10"
           />
-        </Link>
+        {/* </Link> */}
       </div>
     </header>
   );

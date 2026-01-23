@@ -34,23 +34,3 @@
     @apply w-full rounded bg-[#333] px-5 py-3.5 placeholder-[gray] outline-none focus:bg-[#454545];
   }
 }
-
-/* Target the whole scrollbar */
-body::-webkit-scrollbar {
-  width: 12px; /* Width of the vertical scrollbar */
-}
-
-/* Target the track (the background area) */
-body::-webkit-scrollbar-track {
-  background: transparent !important;
-}
-
-/* Target the thumb (the draggable handle) */
-body::-webkit-scrollbar-thumb {
-  background: red;
-}
-
-/* Change the thumb color on hover */
-.body::-webkit-scrollbar-thumb:hover {
-  background: #252525;
-}

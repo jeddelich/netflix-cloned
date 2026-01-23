@@ -31,8 +31,8 @@ function Row({ title, movies }: Props) {
   };
 
   return (
-    <div className="h-40 space-y-0.5 md:space-y-2 md:mt-16">
-      <h2 className="w-56 cursor-pointer text-sm font-semibold text-[#e5e5e5] transition duration-200 hover:text-white md:text-2xl">
+    <div className="space-y-0.5 md:space-y-2 md:mt-8 pb-4">
+      <h2 className="w-fit cursor-pointer text-sm font-semibold text-[#e5e5e5] transition duration-200 hover:text-white md:text-2xl lg:text-4xl lg:mb-16">
         {title}
       </h2>
       <div className="group relative md:-ml-2">
